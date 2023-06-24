@@ -31,10 +31,23 @@ body {
 .stats-card {
     background-color: var(--dark-desaturated-blue);
     overflow: hidden;
-    max-width: 320px;
+    max-width: min(90%, 1000px);
     margin: 0 auto;
     border-radius: 10px;
     padding-bottom: 2.5em;
+}
+
+.stats-card__content {
+    margin: 0 auto;
+    width: 85%;
+}
+
+.stats-card__image {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
 }
 
 .stats-card figure {
@@ -51,19 +64,11 @@ body {
     z-index: 999;
 }
 
-.stats-card__image {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    object-position: top center;
-    display: block;
-}
-
 .stats-card__title {
     text-align: center;
     font-family: Inter, sans-serif;
     font-size: 2.8rem;
-    margin: 1.5em 1em 0.5em;
+    margin: 1.5em 0 0.5em;
 }
 
 .stats-card__title span {
@@ -72,7 +77,7 @@ body {
 
 .stats-card__text {
     color: var(--slightly-transparent-white-paragraph);
-    margin: 1em 2em 3em;
+    margin: 1em 0 3em;
     text-align: center;
     font-family: Inter, sans-serif;
     line-height: 1.8em;
@@ -115,4 +120,62 @@ body {
 
 .attribution a {
     color: hsl(228, 45%, 44%);
+}
+
+@media only screen and (min-width: 600px) {
+    .stats-card {
+        display: flex;
+        flex-direction: row-reverse;
+        padding: 0;
+    }
+
+    .stats-card figure {
+        flex-basis: 30%;
+    }
+    
+    .stats-card__content {
+        flex-basis: 70%;
+        padding: 0 2em 0;
+    }
+
+    .stats-card__image {
+        height: 100%;
+        object-fit: cover;
+        object-position: 75%;
+    }
+
+    .stats-card__title,
+    .stats-card__text,
+    .stats-card__stats li {
+        text-align: left;
+    }
+
+    .stats-card__text {
+        margin-bottom: 0;
+    }
+
+    .stats-card__stats {
+        flex-direction: row;
+        gap: 10%;
+        margin: 3em 0;
+    }
+
+    .stats-card__stats li span {
+        font-size: 2rem;
+    }
+
+    .stats-card__stats li {
+        font-size: 1.3rem;
+    }
+}
+
+@media only screen and (min-width: 800px) {
+    .stats-card figure,
+    .stats-card__content {
+        flex-basis: 100%;
+    }
+    
+    .stats-card__content {
+        padding: 0 3em 0;
+    }
 }
